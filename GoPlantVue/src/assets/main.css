@@ -32,3 +32,13 @@ a,
     padding: 0 2rem;
   }
 }
+
+@font-face {
+  font-family: 'Andika';
+  src: url('../fonts/Andika-Regular.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Andika', sans-serif;
+}
+

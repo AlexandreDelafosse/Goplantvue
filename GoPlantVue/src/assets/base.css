@@ -19,8 +19,10 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
 
-  --green-background: #FBFBDF;
+  --beige: #FBFBDF;
   --green-text-dark: #536B42;
+  --background-nav: #9CB68F;
+  --grey: #818181;
 }
 
 /* semantic color variables for this project */

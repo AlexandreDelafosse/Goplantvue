@@ -6,33 +6,38 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <div class="page-container">
    <RouterView />
-  <header>
+  <footer>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/"><img src="assets/Home.svg"></RouterLink>
-        <RouterLink to="/about"><img src="assets/Widgets.svg"></RouterLink>
-        <RouterLink to="/post"><img src="assets/Profil.svg"></RouterLink>
+        <div class="icons">
+          <RouterLink to="/"><img src="./assets/Home.svg" class="nav-icon"></RouterLink>
+        <RouterLink to="/about"><img src="./assets/Widgets.svg" class="nav-icon"></RouterLink>
+        <RouterLink to="/post"><img src="./assets/Profil.svg" class="nav-icon"></RouterLink>
+        </div>
+    
       </nav>
     </div>
     
-  </header>
+  </footer>
 </div>
 </template>
 
 <style scoped>
 
 .page-container{
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Push the header to the bottom */
+
 }
 
-header {
-  background-color: #f0f0f0; /* Set the background color for the header */
-  line-height: 1.5;
-}
 
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
 
 .logo {
   display: block;
@@ -43,8 +48,14 @@ nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  padding: 1rem;
+  height: 7vh;
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  background-color: var(--background-nav);
 }
+
+
 
 nav a {
   display: inline-block;

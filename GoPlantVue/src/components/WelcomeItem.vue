@@ -1,3 +1,14 @@
+<script>
+export default {
+  // Your component options here
+  methods: {
+    headerClicked() {
+      this.$emit('header-click');
+    }
+  }
+};
+</script>
+
 <template>
   <div class="details">
     <slot></slot>
