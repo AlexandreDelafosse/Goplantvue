@@ -1,3 +1,5 @@
+
+
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -76,4 +78,46 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* commmon class */
+
+.friends-bg-color {
+  background: #696d54;
+}
+
+.groups-bg-color {
+  background: #084531;
+}
+
+.chats-bg-color {
+  background: #9cb68f;
+}
+
+.posts-bg-color {
+  background: #f0e8ca;
+}
+
+.recipes-bg-color {
+  background: #fff;
+}
+
+.trades-bg-color {
+  background: #fff;
+}
+
+.tutorials-bg-color {
+  background: #fbf8e7;
+}
+
+.events-bg-color {
+  background: #b9c18f;
+}
+
+.likes-bg-color {
+  background: #79aa8d;
+}
+
+.text-dark-green {
+  color : #084531 !important;
 }

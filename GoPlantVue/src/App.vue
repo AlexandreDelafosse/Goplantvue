@@ -5,23 +5,21 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div class="page-container">
-   <RouterView />
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/"><img src="assets/Home.svg"></RouterLink>
-        <RouterLink to="/about"><img src="assets/Widgets.svg"></RouterLink>
-        <RouterLink to="/post"><img src="assets/Profil.svg"></RouterLink>
-      </nav>
-    </div>
-    
-  </header>
-</div>
+    <RouterView />
+    <header>
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/"><img src="assets/Home.svg" /></RouterLink>
+          <RouterLink to="/widgets"><img src="assets/Widgets.svg" /></RouterLink>
+          <RouterLink to="/post"><img src="assets/Profil.svg" /></RouterLink>
+        </nav>
+      </div>
+    </header>
+  </div>
 </template>
 
 <style scoped>
-
-.page-container{
+.page-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +30,6 @@ header {
   background-color: #f0f0f0; /* Set the background color for the header */
   line-height: 1.5;
 }
-
 
 .logo {
   display: block;
@@ -49,9 +46,7 @@ nav {
 nav a {
   display: inline-block;
   padding: 0 2.5rem;
-
 }
-
 
 @media (min-width: 1024px) {
   header {
