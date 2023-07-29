@@ -6,16 +6,16 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <div class="page-container">
    <RouterView />
-  <header>
+  <footer>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/"><img src="assets/Home.svg"></RouterLink>
-        <RouterLink to="/about"><img src="assets/Widgets.svg"></RouterLink>
-        <RouterLink to="/post"><img src="assets/Profil.svg"></RouterLink>
+        <RouterLink to="/"><img src="./assets/Home.svg"></RouterLink>
+        <RouterLink to="/about"><img src="./assets/Widgets.svg"></RouterLink>
+        <RouterLink to="/post"><img src="./assets/Profil.svg"></RouterLink>
       </nav>
     </div>
     
-  </header>
+  </footer>
 </div>
 </template>
 
@@ -25,11 +25,11 @@ import HelloWorld from './components/HelloWorld.vue'
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Push the header to the bottom */
+  justify-content: space-between; /* Push the footer to the bottom */
 }
 
-header {
-  background-color: #f0f0f0; /* Set the background color for the header */
+footer {
+  background-color: #f0f0f0; /* Set the background color for the footer */
   line-height: 1.5;
 }
 
@@ -44,6 +44,7 @@ nav {
   font-size: 12px;
   text-align: center;
   padding: 1rem;
+  background: #9CB68F;
 }
 
 nav a {
@@ -54,7 +55,7 @@ nav a {
 
 
 @media (min-width: 1024px) {
-  header {
+  footer {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
@@ -64,7 +65,7 @@ nav a {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
+  footer .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
