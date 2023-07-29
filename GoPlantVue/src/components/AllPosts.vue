@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { db } from "@/firebase";
 import { onMounted, ref } from "vue";
-import { Timestamp, collection, getDocs } from "firebase/firestore";
+import { Timestamp, collection, getDocs, DocumentReference, getDoc } from "firebase/firestore";
+import type {Post, User} from "@/types";
 
 
-const posts = ref([]);
+
+const posts = ref<Post[]>([]);
 
 // Fonction pour mapper les catégories aux classes CSS
 function getBackgroundColor(category: string) {
@@ -22,10 +24,29 @@ function getBackgroundColor(category: string) {
 
 onMounted(async () => {
   let postsCollection = await getDocs(collection(db, "posts"));
-  postsCollection.forEach((post) => {
-    posts.value.push({ ...post.data(), id: post.id });
-  });
-});
+
+  const getUser = async (creatorRef: DocumentReference ) => {
+    const userSnap = await getDoc(creatorRef);
+    return { ...userSnap.data(), id: userSnap.id };
+  };
+
+  for (const post of postsCollection.docs) {
+    const postData = post.data();
+    const creatorRef = postData.creator;
+    const creator: User = await getUser(creatorRef);
+
+    const newPost: Post = {
+      ...postData,
+      id: post.id,
+      creator: creator,
+    };
+
+    posts.value.push(newPost);
+    console.log(posts.value)
+
+  }
+})
+
 </script>
 
 <template>
@@ -41,7 +62,7 @@ onMounted(async () => {
         <div>
           <h3 class="posts_title" :class="['posts_title', getBackgroundColor(post.category), {'white-text': getBackgroundColor(post.category) === 'category-B'}]">{{ post.title }}</h3>
           <div class="posts_header" :class="['posts_header', getBackgroundColor(post.category), {'white-text': getBackgroundColor(post.category) === 'category-B'}]"> 
-            <p class="posts_author" :class="['posts_author', getBackgroundColor(post.category), {'white-text': getBackgroundColor(post.category) === 'category-B'}]"> {{ "Alex" }}</p>
+            <p class="posts_author" :class="['posts_author', getBackgroundColor(post.category), {'white-text': getBackgroundColor(post.category) === 'category-B'}]"> {{post.creator.name}}</p>
             <p class="posts_date" :class="['posts_author', getBackgroundColor(post.category), {'white-text': getBackgroundColor(post.category) === 'category-B'}]"> {{ new Date(post.dateOfPublication.seconds * 1000).toLocaleDateString("fr-fr", {year:"numeric", month:"short", day:"numeric"})  }}</p>
           </div>
               <!-- <p>{{ post.category }}</p> -->
